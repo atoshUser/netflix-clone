@@ -1,10 +1,16 @@
 import {create} from "zustand"
 
 interface Store {
-name:string
+account:IAccount | null
 }
 
 
+interface IAccount{
+    name:string
+    email:string
+
+}
+
 export const useStore = create<Store>()((set,get) => ({
-name:'Anora'
+  account:null
 }))

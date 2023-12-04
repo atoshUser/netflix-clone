@@ -1,7 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
+import {signIn} from "next-auth/react"
 import { Button } from '../ui/button'
 import { FaGithub } from "react-icons/fa";
+
+
+
+
 const Login = () => {
   return (
     <div className={`min-w-[390px] md:w-full h-screen `}>
@@ -13,7 +18,7 @@ const Login = () => {
         -translate-y-1/2   h-[50vh] px-8 py-4'>
           <div className='flex flex-col space-y-4 h-full items-center justify-center'>
           <h1 className='text-4xl font-bold'>Login</h1>
-          <Button className={`mt-4 w-full flex items-center gap-4 bg-red-600 hover:bg-red-500 text-white`}>
+          <Button onClick={() => signIn('github')} className={`mt-4 w-full flex items-center gap-4 bg-red-600 hover:bg-red-500 text-white`}>
             Sign in with Github
              <FaGithub className='w-5 h-5'/>
           </Button>

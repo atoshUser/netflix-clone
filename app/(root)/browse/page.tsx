@@ -1,14 +1,21 @@
 "use client"
 import Login from '@/components/shared/login'
+import ManageAccount from '@/components/shared/manage-account'
 import { useStore } from '@/store'
+import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import React from 'react'
 
 const BrowsePage = () => {
-    const {name} = useStore()
+    const {account} = useStore()
 
-   if(name !== 'Abdurahmon') return <Login/>
-   
+     const {data:session} = useSession()
+   if(account == null) return <ManageAccount/>  
+  if(session == null) return <Login/>
+  console.log(session);
+     
+     
+         
   return (
     <div>BrowsePage </div>
   )
